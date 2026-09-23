@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CalEnergy × Aptics — Suntop Solar Farm</title>
+<meta name="description" content="Independent under-panel thermal inspection at Suntop Solar Farm — answering CalEnergy's own question about back-of-panel connector scans, while Canadian Solar's module warranty is still open.">
+<style>
+:root{
+  --ink:#0c1110; --paper:#fafaf9; --white:#ffffff;
+  --mute:#6e7a77; --faint:#9aa5a2; --hair:#e6e9e8;
+  --teal:#0fa88f; --teal-deep:#0a7a68;
+  --dark:#0c1110; --dark2:#101716; --dark-mute:#8b9793; --dark-hair:rgba(255,255,255,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);
+     -webkit-font-smoothing:antialiased;line-height:1.55}
+.hidden{display:none!important}
+.wrap{max-width:1120px;margin:0 auto;padding:0 40px;position:relative;z-index:2}
+section{padding:108px 0}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:26px}
+h1,h2{letter-spacing:-.026em;font-weight:600;line-height:1.08}
+h2{font-size:clamp(30px,3.6vw,46px);max-width:840px}
+h2 .q{display:block;color:var(--teal-deep)}
+.dark h2 .q{color:var(--teal)}
+.lede{font-size:clamp(18px,2vw,22px);color:var(--mute);font-weight:420;letter-spacing:-.01em;max-width:700px;margin-top:26px}
+.dark{background:var(--dark);color:#f4f6f5}
+.dark .lede{color:var(--dark-mute)}
+.dark h2{color:#f4f6f5}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+/* gate */
+#gate{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;
+      background:radial-gradient(1200px 600px at 78% -10%,rgba(15,168,143,.14),transparent 60%),var(--dark)}
+.gatecard{width:min(400px,92vw);text-align:left;color:#f4f6f5}
+.gatecard .gm{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--dark-mute);margin-bottom:34px}
+.gatecard h3{font-size:26px;font-weight:600;letter-spacing:-.02em}
+.gatecard p{margin-top:12px;font-size:14.5px;color:var(--dark-mute)}
+.gatecard label{display:block;margin:26px 0 8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dark-mute)}
+.gatecard input{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--dark-hair);
+                background:rgba(255,255,255,.04);color:#f4f6f5;font-size:15px;outline:none}
+.gatecard input:focus{border-color:var(--teal)}
+.gatecard button{width:100%;margin-top:26px;padding:15px;border:0;border-radius:999px;cursor:pointer;
+                 background:var(--teal);color:#04211c;font-weight:640;font-size:15px}
+.gatemsg{margin-top:14px;font-size:13px;min-height:18px;color:#f87171}
+
+/* nav */
+#nav{position:fixed;top:0;left:0;right:0;z-index:40;padding:16px 0;opacity:0;pointer-events:none;
+     transition:opacity .35s ease;background:rgba(12,17,16,.86);backdrop-filter:blur(10px);
+     border-bottom:1px solid var(--dark-hair)}
+#nav.on{opacity:1;pointer-events:auto}
+#nav .wrap{display:flex;justify-content:space-between;align-items:center}
+#nav b{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#f4f6f5;font-weight:600}
+#nav a{font-size:13px;color:var(--teal);text-decoration:none;font-weight:560}
+
+/* hero */
+.hero{background:radial-gradient(1100px 640px at 78% -14%,rgba(15,168,143,.16),transparent 62%),var(--dark);
+      color:#f4f6f5;padding:126px 0 0}
+.hero .mark{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--dark-mute);margin-bottom:44px}
+.hero h1{font-size:clamp(42px,6.2vw,88px)}
+.hero h1 .turn{display:block;color:var(--teal);margin-top:.1em}
+.hero .sub{margin-top:34px;font-size:19px;color:var(--dark-mute);max-width:640px;font-weight:420;padding-bottom:90px}
+
+.band{border-top:1px solid var(--dark-hair);background:var(--dark2);display:grid;grid-template-columns:repeat(5,1fr);
+      position:relative;z-index:2}
+.band .cell{padding:40px 16px 36px;text-align:center;border-right:1px solid var(--dark-hair)}
+.band .cell:last-child{border-right:none}
+.band .v{font-size:clamp(20px,2.5vw,31px);font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.band .lbl{margin-top:8px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dark-mute);line-height:1.5}
+
+/* numbered rows */
+.rows{margin-top:66px;border-top:1px solid var(--hair)}
+.rowitem{display:grid;grid-template-columns:74px 1fr 1.14fr;gap:34px;align-items:baseline;
+         padding:42px 0;border-bottom:1px solid var(--hair)}
+.rowitem .no{font-size:14px;color:var(--faint);font-variant-numeric:tabular-nums;font-weight:600}
+.rowitem h3{font-size:20px;font-weight:600;letter-spacing:-.015em}
+.rowitem p{font-size:16.5px;color:var(--mute)}
+.rowitem p b{color:var(--ink);font-weight:600}
+.dark .rows,.dark .rowitem{border-color:var(--dark-hair)}
+.dark .rowitem p{color:var(--dark-mute)}
+.dark .rowitem p b{color:#f4f6f5}
+
+.pull{margin-top:58px;font-size:clamp(21px,2.5vw,30px);font-weight:500;letter-spacing:-.02em;max-width:880px;line-height:1.3}
+.pull em{color:var(--teal-deep);font-style:normal}
+.dark .pull em{color:var(--teal)}
+
+/* figures */
+.figgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:62px}
+.figgrid figure{background:var(--dark2);border:1px solid var(--dark-hair);border-radius:14px;overflow:hidden}
+.figgrid img{display:block;width:100%;height:320px;object-fit:cover;background:#16201e}
+.figgrid figcaption{padding:18px 22px 20px;font-size:14px;color:var(--dark-mute);line-height:1.5}
+.figgrid figcaption b{display:block;color:#e8efed;font-weight:600;font-size:11px;letter-spacing:.16em;
+                      text-transform:uppercase;margin-bottom:6px}
+
+/* specs */
+.specs{display:grid;grid-template-columns:repeat(3,1fr);margin-top:64px;border-top:1px solid var(--dark-hair)}
+.spec{padding:28px 26px 26px 0;border-bottom:1px solid var(--dark-hair)}
+.spec .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dark-mute);margin-bottom:8px}
+.spec .v{font-size:20px;font-weight:600;letter-spacing:-.02em;color:#f4f6f5}
+.spec .s{margin-top:6px;font-size:13.5px;color:var(--dark-mute);line-height:1.5}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:1.25fr 1fr;gap:70px;margin-top:62px;align-items:start}
+.bignum{font-size:clamp(44px,6.4vw,86px);font-weight:600;letter-spacing:-.04em;line-height:1;
+        background:linear-gradient(92deg,#eafff9 20%,#4fd8bf 85%);-webkit-background-clip:text;
+        background-clip:text;color:transparent}
+.bigsub{margin-top:12px;font-size:18px;color:var(--dark-mute)}
+.bigsub b{color:#e8efed;font-weight:560}
+.subrow{display:flex;margin-top:52px;border-top:1px solid var(--dark-hair)}
+.subrow .cell{flex:1;padding:24px 8px 0;border-right:1px solid var(--dark-hair)}
+.subrow .cell:last-child{border-right:none}
+.subrow .n{font-size:21px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.subrow .k{margin-top:5px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dark-mute)}
+.sl label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dark-mute);margin-bottom:4px}
+.sl output{display:block;font-size:20px;font-weight:600;letter-spacing:-.015em;margin-bottom:14px;
+           font-variant-numeric:tabular-nums;color:#f4f6f5}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;border-radius:1px;
+                  background:rgba(255,255,255,.16);outline:none;margin-bottom:30px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;
+                  background:#fff;cursor:pointer}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border:none;border-radius:50%;background:#fff;cursor:pointer}
+.prov{margin-top:56px;font-size:13.5px;color:var(--dark-mute);max-width:700px;line-height:1.65}
+.prov b{color:#cfd9d6;font-weight:560}
+.livechip{display:inline-flex;align-items:center;gap:8px;margin-bottom:26px;font-size:12px;letter-spacing:.1em;
+          text-transform:uppercase;color:var(--dark-mute)}
+.livechip i{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal)}
+
+/* portfolio */
+.folio{margin-top:70px;border-top:1px solid var(--hair)}
+.frow{display:grid;grid-template-columns:1fr 110px 74px 1.5fr;gap:24px;align-items:baseline;
+      padding:22px 0;border-bottom:1px solid var(--hair)}
+.frow.hd{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);padding:14px 0}
+.frow .nm{font-weight:560}
+.frow .no{color:var(--mute);font-size:14.5px;font-variant-numeric:tabular-nums}
+.frow .st{color:var(--mute);font-size:14.5px}
+.frow.this .nm{color:var(--teal-deep)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:76px;border-top:1px solid var(--hair)}
+.step{padding:36px 30px 0 0;border-right:1px solid var(--hair)}
+.step:last-child{border-right:none}
+.step .n{font-size:13px;color:var(--faint);font-variant-numeric:tabular-nums}
+.step h3{margin-top:12px;font-size:17.5px;font-weight:600;letter-spacing:-.015em}
+.step p{margin-top:10px;font-size:14.5px;color:var(--mute)}
+
+/* close */
+.close{background:radial-gradient(1000px 520px at 20% -20%,rgba(15,168,143,.13),transparent 62%),var(--dark);padding:118px 0}
+.close h2{font-size:clamp(32px,4.4vw,58px)}
+.close .when{margin-top:26px;font-size:17px;color:var(--dark-mute);max-width:640px}
+.close .when b{color:#f4f6f5;font-weight:560}
+.cta{display:inline-block;margin-top:42px;padding:16px 34px;border-radius:999px;background:var(--teal);
+     color:#04211c;font-weight:640;font-size:15px;text-decoration:none}
+
+footer{background:var(--dark);color:var(--dark-mute);font-size:12px;padding:0 0 58px}
+footer .wrap{border-top:1px solid var(--dark-hair);padding-top:30px}
+footer p{max-width:880px;line-height:1.7}
+footer a{color:var(--dark-mute)}
+
+@media(max-width:900px){
+  .wrap{padding:0 24px} section{padding:72px 0}
+  .band{grid-template-columns:repeat(2,1fr)}
+  .band .cell{border-bottom:1px solid var(--dark-hair)}
+  .rowitem{grid-template-columns:1fr;gap:10px}
+  .specs,.figgrid,.calc{grid-template-columns:1fr;gap:34px}
+  .spec{padding-right:0}
+  .steps{grid-template-columns:1fr}
+  .step{border-right:none;border-bottom:1px solid var(--hair);padding:30px 0}
+  .frow{grid-template-columns:1fr 80px;gap:12px}
+  .frow .st{grid-column:1/-1}
+}
+
+/* cover-window widget — scoped so nothing here leaks onto the rest of the page */
+.xw{
+  --e-surface:var(--dark2); --e-fg:#f4f6f5; --e-muted:var(--dark-mute); --e-rule:var(--dark-hair); --e-grid:var(--dark-hair);
+  --e-c1:var(--teal-deep); --e-c2:var(--teal); --e-c3:#5f8f86; --e-c4:#24413c;
+  --e-none:var(--dark2); --e-none-line:#c2604a; --e-curve:#f87171; --e-sensor:var(--teal);
+  --e-cell:20px; --e-lbl:288px;
+  margin-top:56px;
+}
+.xw .exp-head{font-size:13px;color:var(--dark-mute);max-width:86ch;line-height:1.6;margin-bottom:22px}
+.xw .exp-head b{color:#f4f6f5;font-weight:560}
+.xw .facts{display:flex;flex-wrap:wrap;gap:22px;margin-bottom:22px;font-size:11px;color:var(--e-muted)}
+.xw .facts b{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--e-fg);font-weight:600;margin-bottom:3px}
+.xw .readout{height:30px;display:flex;align-items:center;font-size:12px;color:var(--e-muted)}
+.xw .readout b{color:var(--e-fg);font-weight:600}
+.xw .panel{background:var(--e-surface);border:1px solid var(--e-rule);border-radius:10px;padding:20px;overflow-x:auto;margin-bottom:18px}
+.xw .inner{min-width:calc(var(--e-lbl) + var(--e-cell)*32 + 4px)}
+.xw .mkstrip{position:relative;height:28px;margin-bottom:2px}
+.xw .mkstrip span{position:absolute;top:0;font-size:9px;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;transform:translateX(-50%);color:var(--e-muted)}
+.xw .mkwrap{position:relative}
+.xw .mkwrap i{position:absolute;top:0;bottom:0;width:0;border-left:1px dashed var(--e-fg);opacity:.4;pointer-events:none}
+.xw .mrow{display:grid;grid-template-columns:var(--e-lbl) repeat(32,var(--e-cell));align-items:center}
+.xw .rlbl{font-size:11px;padding-right:12px;text-align:right;color:var(--e-fg);white-space:nowrap}
+.xw .rlbl em{font-style:normal;color:var(--e-sensor);font-size:10px;letter-spacing:.04em}
+.xw .cell{height:22px;border-right:1px solid var(--e-surface);position:relative;border-radius:2px}
+.xw .s1{background:var(--e-c1)} .xw .s2{background:var(--e-c2)} .xw .s3{background:var(--e-c3)} .xw .s4{background:var(--e-c4)}
+.xw .s5{background:var(--e-sensor)}
+.xw .s0{background:var(--e-none);background-image:repeating-linear-gradient(45deg,transparent 0 4px,var(--e-none-line) 4px 5px);opacity:.85}
+.xw .mrow+.mrow .cell{margin-top:2px}
+.xw .cell:hover{outline:2px solid var(--e-fg);outline-offset:-2px;cursor:default}
+.xw .xaxis{display:grid;grid-template-columns:var(--e-lbl) repeat(32,var(--e-cell));margin-top:8px;border-top:1px solid var(--e-grid);padding-top:5px}
+.xw .xaxis span{font-size:10px;color:var(--e-muted);margin-left:-1px;line-height:1.25}
+.xw .xaxis span u{display:block;text-decoration:none;font-size:9px;opacity:.75}
+.xw .xtitle{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--e-muted);text-align:right;padding-right:12px}
+.xw .legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;font-size:11.5px;color:var(--e-muted);align-items:center}
+.xw .legend span{display:flex;align-items:center;gap:6px}
+.xw .legend i{width:14px;height:12px;border-radius:2px;display:inline-block}
+.xw .legend .hi{color:var(--e-fg)}
+.xw .fn{font-size:12px;color:var(--e-muted);margin:14px 0 0;max-width:86ch;line-height:1.7}
+.xw .fn b{color:var(--e-fg);font-weight:500}
+@media(max-width:900px){ .xw{overflow-x:auto} }
+</style>
+</head>
+<body>
+
+<!-- GATE -->
+<div id="gate">
+  <div class="gatecard">
+    <div class="gm">CalEnergy × Aptics</div>
+    <h3>Suntop Solar Farm. A working proposal.</h3>
+    <p>Enter your work email — your access code fills in automatically.</p>
+    <label for="g-email">Work email</label>
+    <input id="g-email" type="email" autocomplete="email" placeholder="name@calenergyresources.com">
+    <label for="g-key">Access key</label>
+    <input id="g-key" type="text" placeholder="SUNTPSF-••••" autocapitalize="characters">
+    <button id="g-go">Open the proposal</button>
+    <div class="gatemsg" id="g-msg"></div>
+  </div>
+</div>
+
+<div id="page" class="hidden">
+
+<div id="nav"><div class="wrap"><b>CalEnergy × Aptics · Suntop</b><a href="#close">Talk to us</a></div></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="mark">CalEnergy Resources × Aptics &nbsp;·&nbsp; Suntop Solar Farm · September 2026</div>
+    <h1>The scan Josh asked about.<span class="turn">Nobody's running it yet.</span></h1>
+    <p class="sub">Suntop's hills, erosion lines and spring country are exactly where a mower struggles most —
+       which is why sheep already do that job. What's still open is the question CalEnergy raised in our first
+       meeting: whether the back of the panel, where every MC4 connector and hot joint actually lives, is being
+       scanned at all. The annual drone-and-handheld round covers the top of the glass and what a technician can
+       reach on foot. It was built and is still maintained by the same company — and the module warranty it wrote
+       is still years from running out.</p>
+  </div>
+  <div class="band">
+    <div class="cell"><div class="v"><span data-count="150" data-suffix=" MW">0</span></div><div class="lbl">AC · nameplate capacity</div></div>
+    <div class="cell"><div class="v"><span data-count="189" data-suffix=" MWp">0</span></div><div class="lbl">DC · installed capacity (approx.)</div></div>
+    <div class="cell"><div class="v"><span data-count="260" data-suffix=" MW">0</span></div><div class="lbl">Combined with Gunnedah · CalEnergy's NSW book</div></div>
+    <div class="cell"><div class="v"><span data-count="5" data-suffix=" yrs">0</span></div><div class="lbl">Operating · commissioned ~Aug 2021</div></div>
+    <div class="cell"><div class="v"><span data-count="7" data-suffix=" yrs">0</span></div><div class="lbl">Left on Canadian Solar's 12-yr module warranty</div></div>
+  </div>
+</header>
+
+<!-- 01 WHERE THIS STARTS -->
+<section class="dark">
+  <div class="wrap rv">
+    <div class="eyebrow">Where this starts</div>
+    <h2>Annual drone-and-handheld covers the top of the glass.<span class="q">Every terminal lives on the underside.</span></h2>
+
+    <div class="rows">
+      <div class="rowitem"><div class="no">01</div>
+        <div><h3>The fault is invisible from above</h3></div>
+        <p>A drone captures the top of the glass. A handheld inspection covers what a technician can safely reach
+           on foot — harder going on Suntop's slopes and eroded ground than on flat country like Gunnedah. Every
+           terminal, every MC4, every junction box lives on the <b>one surface neither pass ever actually
+           reaches.</b></p></div>
+
+      <div class="rowitem"><div class="no">02</div>
+        <div><h3>The clock is different here</h3></div>
+        <p>Suntop's construction-phase cover closed years ago — CalEnergy bought the asset once it reached
+           practical completion in 2022. But the modules are <b>Canadian Solar's own product</b>, carrying a
+           12-year product and 30-year performance warranty, and Suntop is only about five years in. A hot
+           connector found now is still <b>Canadian Solar's problem to fix</b> — the same company that runs your
+           O&amp;M.</p></div>
+
+      <div class="rowitem"><div class="no">03</div>
+        <div><h3>One pass beats a campaign</h3></div>
+        <p>A unit that inspects on every pass produces the <b>same reference points every time</b> — a comparable,
+           dated, geolocated record, instead of the one annual round a drone-and-handheld campaign can realistically
+           deliver.</p></div>
+    </div>
+
+    <p class="pull">The question already on the table is <em>whether anyone is actually scanning behind the
+      panel.</em> From what's been described so far, the honest answer is: not from above, and not by hand across
+      150 MW of hillside.</p>
+
+    <!-- COVER WINDOW -->
+    <div class="xw">
+      <div class="exp-head">Mapped over the 30 years from commercial operation: what's already closed, and what
+         <b>Canadian Solar — module maker and O&amp;M contractor both</b> — is still on the hook for.</div>
+      <div class="facts">
+        <div><b>150 MW<sub>ac</sub> / ~189 MW<sub>p dc</sub></b>Suntop Solar Farm</div>
+        <div><b>Near Dunedoo, NSW</b>Central West NSW</div>
+        <div><b>Commissioned ~Aug 2021</b>Bought by CalEnergy, Jul 2022</div>
+        <div><b>Canadian Solar</b>Module OEM, asset manager &amp; O&amp;M</div>
+        <div><b>Open question, 22 Sep 2026</b>Are back-of-panel scans happening at all?</div>
+      </div>
+
+      <div class="readout" id="xw-readout"><span>Hover any row for the detail.</span></div>
+
+      <div class="panel">
+       <div class="inner">
+        <div class="mkstrip" id="xw-mkstrip"></div>
+        <div class="mkwrap"><div id="xw-matrix"></div><div id="xw-mklayer"></div></div>
+        <div class="xaxis" id="xw-xaxis"></div>
+
+        <div class="legend">
+          <span><i style="background:var(--e-c1)"></i>Construction-phase cover — closed</span>
+          <span><i style="background:var(--e-c2)"></i>Canadian Solar product warranty — replacement cover</span>
+          <span class="hi"><i style="background:var(--e-sensor)"></i>Canadian Solar performance warranty — degradation only</span>
+          <span><i class="s0" style="border:1px solid var(--e-none-line)"></i>No cover — CalEnergy bears the cost</span>
+        </div>
+       </div>
+      </div>
+
+      <p class="fn">Commissioning and practical-completion dates are estimated from public reporting (see footer)
+         and CalEnergy's own account of roughly five years' operation — not from a sighted contract or handover
+         certificate. Module warranty terms are Canadian Solar's published Australian terms for its BiKu/BiHiKu
+         module family; the certificate actually issued for Suntop's own modules has not been sighted. This is not
+         an audit of CalEnergy's or Canadian Solar's actual contracts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 THE MACHINE -->
+<section>
+  <div class="wrap rv">
+    <div class="eyebrow">The machine</div>
+    <h2>One chassis. It reads every string from underneath.</h2>
+    <p class="lede">Every pass images the full under-panel envelope — the layer no drone, walk-down or aerial
+       survey ever reaches. These frames are from our own under-panel camera work elsewhere; Suntop would be the
+       first pass at this site itself.</p>
+
+    <figure style="margin-top:48px;border-radius:14px;overflow:hidden;border:1px solid var(--hair)">
+      <img src="unit-onsite.jpg" alt="Aptics AU 007 unit on site at a solar farm, with site crew talking in the background" style="display:block;width:100%;max-height:520px;object-fit:cover">
+      <figcaption style="padding:14px 2px 0;font-size:13.5px;color:var(--mute)">Aptics AU 007, on site at another
+        Aptics deployment — not Suntop. Included to show the unit and a crew walkthrough in the field, not as a
+        photograph of this site.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="dark" style="padding-top:0">
+  <div class="wrap rv">
+    <div class="figgrid">
+      <figure>
+        <img src="thermal-01.png" alt="Thermal image of cable terminations running hot, flagged with detection boxes">
+        <figcaption><b>Radiometric thermal · terminations</b>Cable terminations running hot, boxed automatically
+          on a routine pass elsewhere in the fleet — the same fault class Josh asked us to check for at Suntop.</figcaption>
+      </figure>
+      <figure>
+        <img src="thermal-02.png" alt="Close thermal view of two hot terminations with detection boxes">
+        <figcaption><b>Radiometric thermal · close pass</b>The same fault class up close. Tracked between passes,
+          so a warm joint that is getting warmer never goes unnoticed.</figcaption>
+      </figure>
+      <figure>
+        <img src="mc4-01.png" alt="Under-panel view showing two MC4 connectors identified and highlighted">
+        <figcaption><b>Visual · MC4 connectors</b>Two connectors identified from below by the on-board model, on
+          another Aptics site — the exact fault class behind the question CalEnergy raised in our first
+          meeting.</figcaption>
+      </figure>
+      <figure>
+        <img src="mc4-04.png" alt="Under-panel view with a single MC4 connector identified mid-row">
+        <figcaption><b>Visual · mid-row</b>A single connector picked out mid-row, elsewhere in the fleet. Left
+          alone, this is how a string quietly stops earning — and how a manufacturer's warranty claim quietly
+          loses its evidence.</figcaption>
+      </figure>
+    </div>
+
+    <div class="specs">
+      <div class="spec"><div class="k">Footprint</div><div class="v">1,200 × 700 × 450 mm</div>
+        <div class="s">Clears a row without touching a module</div></div>
+      <div class="spec"><div class="k">Fleet sizing</div><div class="v">1 rover / 15–20 MW block</div>
+        <div class="s">Suntop's 150 MW needs roughly 8–10 units for full coverage</div></div>
+      <div class="spec"><div class="k">Detection</div><div class="v">Thermal + visual</div>
+        <div class="s">Cell cracks and MC4 connector faults — the anomaly classes raised in our first meeting</div></div>
+      <div class="spec"><div class="k">Missions</div><div class="v">Console-directed, by polygon</div>
+        <div class="s">Target any area of the site for a secondary pass, on demand</div></div>
+      <div class="spec"><div class="k">Pass cadence</div><div class="v">Proposed — quarterly</div>
+        <div class="s">Whole-site; to be confirmed once pricing and pilot terms are agreed</div></div>
+      <div class="spec"><div class="k">Coming next</div><div class="v">Arms · spraying · fire payloads</div>
+        <div class="s">On Aptics' public roadmap, not yet available</div></div>
+    </div>
+
+    <p class="prov">Human-coexistent by design, not human-excluded: safety-rated laser scanner, dual-channel
+       safety controller and emergency stop. SWMS and risk assessment supplied before mobilisation. Public and
+       products liability insurance held at Aptics' standard level, certificate of currency on request — carried
+       from standing collateral and not re-verified against a current policy schedule in this session.</p>
+  </div>
+</section>
+
+<!-- 03 THE COST CASE -->
+<section class="dark" style="padding-top:0">
+  <div class="wrap rv">
+    <div class="eyebrow">The cost case</div>
+    <h2>What this saves you. What it protects.</h2>
+    <p class="lede">The only like-for-like comparison is a crew walking every row with a handheld IR camera,
+       because that's the only other way to see the rear of a module. <b style="color:#f4f6f5;font-weight:560">Every
+       input below is yours to set.</b> Put in your own numbers:</p>
+
+    <div class="livechip" id="livetag"><i></i>Live signal · OpenElectricity · Suntop (SUNTPSF)</div>
+
+    <div class="calc">
+      <div>
+        <div class="bigsub" style="margin:0 0 4px">Aptics would be saving you over</div>
+        <div class="bignum" id="rAUD">US$0.00M</div>
+        <div class="bigsub">a year, at the coverage and cadence you set — <b>with a fully auditable data trail
+           behind every finding</b>, evidenced while Canadian Solar's own module warranty is still open.</div>
+        <div class="subrow">
+          <div class="cell"><div class="n" id="rManual">US$0</div><div class="k">Manual walk-down / yr</div></div>
+          <div class="cell"><div class="n" id="rAptics">US$0</div><div class="k">Aptics fixed fee / yr</div></div>
+          <div class="cell"><div class="n" id="rSaved">US$0</div><div class="k">Difference / yr</div></div>
+          <div class="cell"><div class="n" id="rPerMW">US$0</div><div class="k">Difference per MW / yr</div></div>
+        </div>
+      </div>
+      <div class="sl">
+        <label for="sMW">Coverage</label><output id="oMW">150 MW</output>
+        <input id="sMW" type="range" min="0" max="150" step="2" value="150">
+        <label for="sManual">Manual cost per MW, per pass</label><output id="oManual">US$900</output>
+        <input id="sManual" type="range" min="500" max="2000" step="10" value="900">
+        <label for="sPasses">Manual passes actually done, per year</label><output id="oPasses">1</output>
+        <input id="sPasses" type="range" min="0" max="4" step="1" value="1">
+      </div>
+    </div>
+
+    <p class="prov">Coverage defaults to <b>150 MW</b> — Suntop's own AC nameplate capacity — with Aptics' standing
+       benchmark rate held at <b>US$1,000 per MW per year</b>, per Aptics' 2026 pricing basis. A firm AUD quote for
+       Suntop has not yet been submitted to CalEnergy — "Submit Pricing" remains an open action from the 22
+       September meeting, alongside the capability statement and the technical-team call. The manual cost per MW
+       and the number of passes are yours to set; CalEnergy's team currently runs one annual drone-and-handheld
+       round, so the one-pass default is sourced, but the US$900 manual-cost figure is an indicative placeholder
+       for discussion, not CalEnergy's own costs. The live signal above is Suntop's own recent NEM dispatch — shown
+       as a data-quality proof point, not an input to this calculator. No capital-at-risk figure is shown here,
+       unlike in comparable Aptics proposals, because Suntop's build cost has not been sourced this session.</p>
+  </div>
+</section>
+
+<!-- 04 THE OBLIGATION -->
+<section>
+  <div class="wrap rv">
+    <div class="eyebrow">The obligation</div>
+    <h2>In New South Wales, a hot DC connection is a work-health-and-safety matter, not just a warranty one.</h2>
+    <p class="lede">The <b>Work Health and Safety Act 2011 (NSW)</b> and <b>AS/NZS 5033</b> require DC wiring and
+       connectors to be kept safe and inspected by licensed personnel. SafeWork NSW has run compliance checks at
+       NSW solar farms since 2021, naming DC faults and fire risk explicitly.</p>
+
+    <p class="pull">Neither sets a threshold or an interval. The standard is whatever you can evidence — <em>a
+       dated, geolocated record of what was found, where, and when</em>. Vegetation encroachment on the same DC
+       infrastructure compounds the same risk — a fault and long grass in the same place is how a fire starts, not
+       just a warranty claim. Every pass leaves a record automatically.</p>
+  </div>
+</section>
+
+<!-- 05 THE PORTFOLIO -->
+<section>
+  <div class="wrap rv" style="padding-top:0">
+    <div class="eyebrow">The portfolio</div>
+    <h2>One 150 MW site. A second next door.</h2>
+    <p class="lede">Everything configured at Suntop — CBX references, thermal baselines, findings format, Console
+       access — becomes the standard for Gunnedah, and for whatever CalEnergy adds to its Australian book next.</p>
+
+    <div class="folio">
+      <div class="frow hd"><div>Site</div><div>MW</div><div>State</div><div></div></div>
+      <div class="frow this"><div class="nm">Suntop</div><div class="no">150 AC</div><div class="st">NSW</div>
+        <div class="st">This proposal · hilly terrain, erosion and springs · sheep graze under an adjustment
+           agreement with neighbours</div></div>
+      <div class="frow"><div class="nm">Gunnedah</div><div class="no">110 AC</div><div class="st">NSW</div>
+        <div class="st">Same owner, same O&amp;M contractor · flat floodplain, per CalEnergy's own description ·
+           not yet scoped</div></div>
+    </div>
+    <p style="margin-top:18px;font-size:12.5px;color:var(--faint)">CalEnergy Resources (Australia) Limited is a
+       subsidiary of Northern Powergrid Holdings, part of Berkshire Hathaway Energy — per CalEnergy's own asset
+       page and public reporting of the 2022 acquisition (see footer).</p>
+  </div>
+</section>
+
+<!-- 06 THE PATH -->
+<section style="background:var(--white)">
+  <div class="wrap rv">
+    <div class="eyebrow">The path</div>
+    <h2>A first look, then the standard travels with the fleet.</h2>
+
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>A first look, five days</h3>
+        <p>One site visit at Suntop — onboarding, geofencing, and a thermal-and-visual pass across the block or
+           blocks CalEnergy nominates. Pricing to follow the discovery call already agreed with Josh.</p></div>
+      <div class="step"><div class="n">02</div><h3>What you get</h3>
+        <p>A geolocated findings report referenced to Suntop's own layout, with MC4 and loom heating reported as
+           its own section — so a manufacturer's claim against Canadian Solar can be lodged without being unpicked
+           from the rest — plus Aptics Console access for the trial period.</p></div>
+      <div class="step"><div class="n">03</div><h3>The whole site</h3>
+        <p>150 MW at Aptics' standard per-MW rate (see the calculator above), phased by block once the first look
+           confirms the terrain, at the quarterly cadence proposed above.</p></div>
+      <div class="step"><div class="n">04</div><h3>While the modules are still under warranty</h3>
+        <p>Roughly seven years remain on Canadian Solar's own product warranty for Suntop's modules, and about
+           twenty-five on the performance warranty. A baseline set now is evidence while it still counts.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="close">
+  <div class="wrap rv">
+    <h2>Let's get Josh his answer on the panel scans.</h2>
+    <p class="when">Josh — you asked us to check whether anyone's actually inspecting behind the panel at Suntop.
+       This is the proposal you asked for, and the pricing basis we owe you. <b>Phillip Wagstaff, Aptics.</b></p>
+    <a class="cta" href="mailto:phillip@aptics.com?cc=jonathan@aptics.com&amp;subject=Suntop%20—%20Thermal%20%26%20Vegetation%20Inspection%20Proposal">Email Phillip directly</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Figures are indicative and for discussion. Suntop's capacity (150 MW AC; combined 345 MWp DC across Suntop
+       and Gunnedah) is corroborated from CalEnergy's own account (Aptics discovery call with Josh Hurley, 22
+       September 2026) and from public reporting of the Canadian Solar → CalEnergy sale:
+       <a href="https://recurrentenergy.com/canadian-solar-completes-sale-of-two-solar-farms-totaling-345-mwp-in-new-south-wales-australia/">Recurrent Energy, 7 July 2022</a>
+       and <a href="https://www.pv-magazine-australia.com/2022/07/08/canadian-solar-sells-two-australian-solar-farms-to-us-interests/">pv magazine Australia, 8 July 2022</a>.
+       OpenElectricity's own registered-capacity record for facility SUNTPSF was not independently retrievable in
+       this session — its facilities API requires an authentication key Aptics does not hold here — and has not
+       been reconciled against these figures. Suntop's individual DC capacity (~189 MWp) is sourced to
+       <a href="https://www.csisolar.com/au/189-mw-suntop-solar-farm/">Canadian Solar's own project page</a> and has
+       not been independently verified elsewhere. NSW planning approval for a 170 MW solar farm was determined 4
+       December 2018 (<a href="https://www.planningportal.nsw.gov.au/major-projects/projects/suntop-solar-farm">NSW
+       planning portal</a>); commissioning is reported as around August 2021 (Canadian Solar's project page);
+       CalEnergy's purchase, at "substantial completion," closed 7 July 2022. A defects-liability period of the
+       standard 12–24 months from that point would already have closed by 2023–2024 — an inference from typical
+       project timelines, not a sighted contract or handover certificate. Module warranty terms (12-year product,
+       30-year performance) are
+       <a href="https://www.canadiansolar.com/au/wp-content/uploads/sites/2/2020/08/CSI_PV_BiKu-MB_Module_Warranty_au-v1.2.pdf">Canadian
+       Solar's published Australian terms</a> for its BiKu/BiHiKu module family; the certificate actually issued
+       for Suntop's own modules has not been sighted. Robot specifications (1,200 × 700 × 450 mm; one unit per
+       15–20 MW block; thermal and visual detection of cell cracks and MC4 faults; console-directed polygon
+       missions) are as Aptics described them to CalEnergy in the 22 September 2026 meeting. ISO 18497 certification
+       and the public/products liability figure are carried from Aptics' standing collateral and were not
+       independently re-verified this session. Pricing shown in the calculator (US$1,000 per MW per year) is
+       Aptics' internal 2026 pricing basis, not a quote yet submitted to CalEnergy. Regulatory reference: Work
+       Health and Safety Act 2011 (NSW) and AS/NZS 5033; SafeWork NSW compliance activity at NSW solar farms,
+       ongoing since 2021. Imagery, including the thermal and MC4 frames and the photograph of the AU 007 unit in
+       the field, is from Aptics deployments elsewhere and is illustrative — Aptics has not yet visited or
+       thermally inspected Suntop, and none of these images are photographs of this site. Figures on this page are
+       for discussion and are not an offer.
+       Aptics Aus Pty Ltd (ACN 701 578 207) · Confidential &amp; without prejudice.</p>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+
+  /* ---------- access gate — key auto-fills from ?key= ---------- */
+  var SALT="ddfe165247e8fb67";
+  var KEYHASH="a4f18612b8401bcb1482a927085509de0edeaed85c78ff6adba54c6943e73edf";
+  var DOMAINS=["calenergyresources.com","aptics.com"];
+  var KEY_B64="U1VOVFBTRi0wOTI2";
+
+  function sha256(str){
+    return crypto.subtle.digest("SHA-256",new TextEncoder().encode(str)).then(function(buf){
+      return Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,"0");}).join("");
+    });
+  }
+  function unlock(){
+    $("gate").classList.add("hidden");
+    $("page").classList.remove("hidden");
+    sessionStorage.setItem("aptics_suntop_unlocked","1");
+    boot();
+  }
+  function tryKey(key,silent){
+    return sha256(SALT+"|"+String(key||"").trim().toUpperCase()).then(function(h){
+      if(h===KEYHASH){unlock();return true;}
+      if(!silent){$("g-msg").textContent="That key doesn't match. Check your invitation link.";}
+      return false;
+    });
+  }
+  function autofill(){
+    var email=($("g-email").value||"").trim().toLowerCase();
+    var dom=email.split("@")[1];
+    if(dom&&DOMAINS.indexOf(dom)>=0){
+      $("g-key").value=atob(KEY_B64);
+      var m=$("g-msg"); m.style.color="#8b9793";
+      m.textContent="Access code filled from your invitation.";
+    }
+  }
+  var urlKey=new URLSearchParams(location.search).get("key");
+  if(urlKey){ $("g-key").value=urlKey.toUpperCase(); }
+  if(sessionStorage.getItem("aptics_suntop_unlocked")==="1"){ unlock(); }
+  else if(urlKey){ tryKey(urlKey,true); }
+  ["input","change","blur"].forEach(function(ev){$("g-email").addEventListener(ev,autofill);});
+  $("g-go").addEventListener("click",function(){tryKey($("g-key").value,false);});
+  $("g-key").addEventListener("keydown",function(e){if(e.key==="Enter")tryKey($("g-key").value,false);});
+
+  /* ---------- page ---------- */
+  var booted=false;
+  function boot(){
+    if(booted)return; booted=true;
+    var fmt=function(n,d){d=d||0;return n.toLocaleString("en-AU",{minimumFractionDigits:d,maximumFractionDigits:d});};
+
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.14});
+    document.querySelectorAll(".rv").forEach(function(el){io.observe(el);});
+
+    var nav=$("nav");
+    addEventListener("scroll",function(){nav.classList.toggle("on",scrollY>innerHeight*.6);},{passive:true});
+
+    var co=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return; co.unobserve(e.target);
+      var el=e.target,end=+el.dataset.count,suf=el.dataset.suffix||"",dec=(end%1!==0)?2:0,t0=performance.now();
+      (function tick(t){
+        var p=Math.min((t-t0)/1400,1),ease=1-Math.pow(1-p,3);
+        el.textContent=fmt(end*ease,dec)+suf;
+        if(p<1)requestAnimationFrame(tick);
+      })(t0);
+    });},{threshold:.5});
+    document.querySelectorAll("[data-count]").forEach(function(el){co.observe(el);});
+
+    /* ----- cost-case engine ----- */
+    var cur={manual:0,aptics:0,saved:0,perMW:0};
+    function target(){
+      var mw=+$("sMW").value,manualRate=+$("sManual").value,passes=+$("sPasses").value;
+      $("oMW").textContent=fmt(mw)+" MW";
+      $("oManual").textContent="US$"+fmt(manualRate);
+      $("oPasses").textContent=fmt(passes);
+      var manual=mw*manualRate*passes;
+      var aptics=mw*1000;
+      var saved=Math.max(0,manual-aptics);
+      return{manual:manual,aptics:aptics,saved:saved,perMW:mw>0?saved/mw:0};
+    }
+    function render(v){
+      $("rAUD").textContent=v.saved>=1e6?"US$"+fmt(v.saved/1e6,2)+"M":"US$"+fmt(Math.round(v.saved));
+      $("rManual").textContent="US$"+fmt(Math.round(v.manual));
+      $("rAptics").textContent="US$"+fmt(Math.round(v.aptics));
+      $("rSaved").textContent="US$"+fmt(Math.round(v.saved));
+      $("rPerMW").textContent="US$"+fmt(Math.round(v.perMW));
+    }
+    var anim=null;
+    function tween(){
+      var to=target(),from={},k; for(k in cur)from[k]=cur[k];
+      var t0=performance.now();
+      if(anim)cancelAnimationFrame(anim);
+      (function step(t){
+        var p=Math.min((t-t0)/420,1),e=1-Math.pow(1-p,3),v={};
+        for(var k in to)v[k]=from[k]+(to[k]-from[k])*e;
+        render(v);cur=v;
+        if(p<1)anim=requestAnimationFrame(step);
+      })(t0);
+    }
+    ["sMW","sManual","sPasses"].forEach(function(id){$(id).addEventListener("input",tween);});
+    render(cur=target());
+
+    /* ----- OpenElectricity live attempt (graceful fallback) ----- */
+    fetch("https://data.openelectricity.org.au/v3/stats/au/NEM/SUNTPSF/power/7d.json")
+      .then(function(r){if(!r.ok)throw 0;return r.json();})
+      .then(function(j){
+        var s=(j.data||[]).filter(function(d){return d.data_type==="power";})[0];
+        if(!s||!s.history)throw 0;
+        var arr=s.history.data.filter(function(v){return v!=null;});
+        if(!arr.length)throw 0;
+        var avg=arr.reduce(function(a,b){return a+b;},0)/arr.length;
+        $("livetag").innerHTML='<i></i>Live · Suntop averaged '+fmt(avg,0)+' MW over the last 7 days · OpenElectricity';
+      })
+      .catch(function(){});
+
+    /* ----- cover-window widget ----- */
+    (function(){
+      var YEARS=32, COD=2021.6;                /* commercial operation, ~Aug 2021 */
+      var NOW=2026.73, BOUGHT=2022.52;          /* today · CalEnergy bought the asset ~Jul 2022 */
+      var tYr=function(cal){return cal-COD;};
+
+      var STATE={
+        1:"Construction-phase / practical-completion cover — closed",
+        2:"Canadian Solar product warranty — replacement for material/workmanship defects",
+        5:"Canadian Solar performance warranty — degradation only, not full replacement",
+        0:"No cover — CalEnergy bears the cost"
+      };
+      var ROWS=[
+        {name:"Construction-phase cover (EPC / practical completion)", seg:[[0,2.4,1],[2.4,32,0]]},
+        {name:"Module product warranty — 12 yrs",     own:true, seg:[[0,12,2],[12,32,0]]},
+        {name:"Module performance warranty — 30 yrs", own:true, seg:[[0,30,5],[30,32,0]]}
+      ];
+
+      var readout=$("xw-readout"), matrix=$("xw-matrix");
+      if(!readout||!matrix)return;
+      var calLabel=function(y){return Math.floor(COD+y)+"–"+String(Math.floor(COD+y+1)).slice(2);};
+      ROWS.forEach(function(r){
+        var row=document.createElement('div'); row.className='mrow';
+        var l=document.createElement('div'); l.className='rlbl';
+        l.innerHTML=r.name+(r.own?' <em>— Canadian Solar</em>':'');
+        row.appendChild(l);
+        var flat=new Array(YEARS).fill(0);
+        r.seg.forEach(function(s){for(var y=s[0];y<s[1]&&y<YEARS;y++)flat[y]=s[2];});
+        flat.forEach(function(s,y){
+          var c=document.createElement('div'); c.className='cell s'+s;
+          c.addEventListener('mouseenter',function(){readout.innerHTML='<span><b>'+r.name+'</b> · '+calLabel(y)+' · '+STATE[s]+'</span>';});
+          row.appendChild(c);
+        });
+        matrix.appendChild(row);
+      });
+      matrix.addEventListener('mouseleave',function(){readout.innerHTML='<span>Hover any row for the detail.</span>';});
+
+      var xwEl=document.querySelector('.xw');
+      var CW=parseFloat(getComputedStyle(xwEl).getPropertyValue('--e-cell'))||20;
+      var LB=parseFloat(getComputedStyle(xwEl).getPropertyValue('--e-lbl'))||288;
+      var MARKS=[{y:tYr(BOUGHT),t:'CalEnergy buys',row:0},{y:tYr(NOW),t:'Today',row:1}];
+      var mklayer=$("xw-mklayer"), mkstrip=$("xw-mkstrip");
+      MARKS.forEach(function(k){
+        var x=LB+k.y*CW;
+        var i=document.createElement('i'); i.style.left=x+'px'; mklayer.appendChild(i);
+        var s=document.createElement('span'); s.textContent=k.t; s.style.left=x+'px'; s.style.top=(k.row*13)+'px'; mkstrip.appendChild(s);
+      });
+
+      var xa=$("xw-xaxis");
+      var t=document.createElement('div'); t.className='xtitle'; t.textContent='Years from commercial operation, ~August 2021'; xa.appendChild(t);
+      for(var y=0;y<YEARS;y++){
+        var s=document.createElement('span');
+        if(y%5===0) s.innerHTML=y+'<u>'+Math.floor(COD+y)+'</u>';
+        xa.appendChild(s);
+      }
+    })();
+  }
+})();
+</script>
+</body>
+</html>
