@@ -238,13 +238,12 @@ footer a{color:var(--dark-mute)}
 <header class="hero">
   <div class="wrap">
     <div class="mark">CalEnergy Resources × Aptics &nbsp;·&nbsp; Suntop Solar Farm · September 2026</div>
-    <h1>The scan Josh asked about.<span class="turn">Nobody's running it yet.</span></h1>
-    <p class="sub">Suntop's hills, erosion lines and spring country are exactly where a mower struggles most —
-       which is why sheep already do that job. What's still open is the question CalEnergy raised in our first
-       meeting: whether the back of the panel, where every MC4 connector and hot joint actually lives, is being
-       scanned at all. The annual drone-and-handheld round covers the top of the glass and what a technician can
-       reach on foot. It was built and is still maintained by the same company — and the module warranty it wrote
-       is still years from running out.</p>
+    <h1>The back of the panel.<span class="turn">Nobody's scanning it yet.</span></h1>
+    <p class="sub">Suntop's hills, erosion lines and spring country make the terrain difficult to work on foot.
+       What's still open is the question CalEnergy raised in our first meeting: whether the back of the panel,
+       where every MC4 connector and hot joint actually lives, is being scanned at all. The annual drone-and-handheld
+       round covers the top of the glass and what a technician can reach on foot. It was built and is still
+       maintained by the same company — and the module warranty it wrote is still years from running out.</p>
   </div>
   <div class="band">
     <div class="cell"><div class="v"><span data-count="150" data-suffix=" MW">0</span></div><div class="lbl">AC · nameplate capacity</div></div>
@@ -407,35 +406,37 @@ footer a{color:var(--dark-mute)}
     <div class="calc">
       <div>
         <div class="bigsub" style="margin:0 0 4px">Aptics would be saving you over</div>
-        <div class="bignum" id="rAUD">US$0.00M</div>
+        <div class="bignum" id="rAUD">A$0.00M</div>
         <div class="bigsub">a year, at the coverage and cadence you set — <b>with a fully auditable data trail
            behind every finding</b>, evidenced while Canadian Solar's own module warranty is still open.</div>
         <div class="subrow">
-          <div class="cell"><div class="n" id="rManual">US$0</div><div class="k">Manual walk-down / yr</div></div>
-          <div class="cell"><div class="n" id="rAptics">US$0</div><div class="k">Aptics fixed fee / yr</div></div>
-          <div class="cell"><div class="n" id="rSaved">US$0</div><div class="k">Difference / yr</div></div>
-          <div class="cell"><div class="n" id="rPerMW">US$0</div><div class="k">Difference per MW / yr</div></div>
+          <div class="cell"><div class="n" id="rManual">A$0</div><div class="k">Manual walk-down / yr</div></div>
+          <div class="cell"><div class="n" id="rAptics">A$0</div><div class="k">Aptics fixed fee / yr</div></div>
+          <div class="cell"><div class="n" id="rSaved">A$0</div><div class="k">Difference / yr</div></div>
+          <div class="cell"><div class="n" id="rPerMW">A$0</div><div class="k">Difference per MW / yr</div></div>
         </div>
       </div>
       <div class="sl">
         <label for="sMW">Coverage</label><output id="oMW">150 MW</output>
         <input id="sMW" type="range" min="0" max="150" step="2" value="150">
-        <label for="sManual">Manual cost per MW, per pass</label><output id="oManual">US$900</output>
-        <input id="sManual" type="range" min="500" max="2000" step="10" value="900">
+        <label for="sManual">Manual cost per MW, per pass</label><output id="oManual">A$1,270</output>
+        <input id="sManual" type="range" min="700" max="2830" step="10" value="1270">
         <label for="sPasses">Manual passes actually done, per year</label><output id="oPasses">1</output>
         <input id="sPasses" type="range" min="0" max="4" step="1" value="1">
       </div>
     </div>
 
     <p class="prov">Coverage defaults to <b>150 MW</b> — Suntop's own AC nameplate capacity — with Aptics' standing
-       benchmark rate held at <b>US$1,000 per MW per year</b>, per Aptics' 2026 pricing basis. A firm AUD quote for
-       Suntop has not yet been submitted to CalEnergy — "Submit Pricing" remains an open action from the 22
-       September meeting, alongside the capability statement and the technical-team call. The manual cost per MW
-       and the number of passes are yours to set; CalEnergy's team currently runs one annual drone-and-handheld
-       round, so the one-pass default is sourced, but the US$900 manual-cost figure is an indicative placeholder
-       for discussion, not CalEnergy's own costs. The live signal above is Suntop's own recent NEM dispatch — shown
-       as a data-quality proof point, not an input to this calculator. No capital-at-risk figure is shown here,
-       unlike in comparable Aptics proposals, because Suntop's build cost has not been sourced this session.</p>
+       benchmark rate held at <b>US$1,000 per MW per year</b>, per Aptics' 2026 pricing basis, shown here converted
+       to <b>A$1,416 per MW per year</b> at the mid-market rate of US$1 = A$1.4157 (XE.com, 24 September 2026) — an
+       indicative conversion, not a locked FX rate. A firm AUD quote for Suntop has not yet been submitted to
+       CalEnergy — "Submit Pricing" remains an open action from the 22 September meeting, alongside the capability
+       statement and the technical-team call. The manual cost per MW and the number of passes are yours to set;
+       CalEnergy's team currently runs one annual drone-and-handheld round, so the one-pass default is sourced, but
+       the A$1,270 manual-cost figure is an indicative placeholder for discussion (converted from a US$900 working
+       assumption), not CalEnergy's own costs. The live signal above is Suntop's own recent NEM dispatch — shown as
+       a data-quality proof point, not an input to this calculator. No capital-at-risk figure is shown here, unlike
+       in comparable Aptics proposals, because Suntop's build cost has not been sourced this session.</p>
   </div>
 </section>
 
@@ -485,8 +486,8 @@ footer a{color:var(--dark-mute)}
     <h2>A first look, then the standard travels with the fleet.</h2>
 
     <div class="steps">
-      <div class="step"><div class="n">01</div><h3>A first look, five days</h3>
-        <p>One site visit at Suntop — onboarding, geofencing, and a thermal-and-visual pass across the block or
+      <div class="step"><div class="n">01</div><h3>Trial pilot thermal inspection</h3>
+        <p>Five days on site at Suntop — onboarding, geofencing, and a thermal-and-visual pass across the block or
            blocks CalEnergy nominates. Pricing to follow the discovery call already agreed with Josh.</p></div>
       <div class="step"><div class="n">02</div><h3>What you get</h3>
         <p>A geolocated findings report referenced to Suntop's own layout, with MC4 and loom heating reported as
@@ -623,19 +624,19 @@ footer a{color:var(--dark-mute)}
     function target(){
       var mw=+$("sMW").value,manualRate=+$("sManual").value,passes=+$("sPasses").value;
       $("oMW").textContent=fmt(mw)+" MW";
-      $("oManual").textContent="US$"+fmt(manualRate);
+      $("oManual").textContent="A$"+fmt(manualRate);
       $("oPasses").textContent=fmt(passes);
       var manual=mw*manualRate*passes;
-      var aptics=mw*1000;
+      var aptics=mw*1416;               /* US$1,000/MW/yr converted at US$1=A$1.4157 (XE.com, 24 Sep 2026) */
       var saved=Math.max(0,manual-aptics);
       return{manual:manual,aptics:aptics,saved:saved,perMW:mw>0?saved/mw:0};
     }
     function render(v){
-      $("rAUD").textContent=v.saved>=1e6?"US$"+fmt(v.saved/1e6,2)+"M":"US$"+fmt(Math.round(v.saved));
-      $("rManual").textContent="US$"+fmt(Math.round(v.manual));
-      $("rAptics").textContent="US$"+fmt(Math.round(v.aptics));
-      $("rSaved").textContent="US$"+fmt(Math.round(v.saved));
-      $("rPerMW").textContent="US$"+fmt(Math.round(v.perMW));
+      $("rAUD").textContent=v.saved>=1e6?"A$"+fmt(v.saved/1e6,2)+"M":"A$"+fmt(Math.round(v.saved));
+      $("rManual").textContent="A$"+fmt(Math.round(v.manual));
+      $("rAptics").textContent="A$"+fmt(Math.round(v.aptics));
+      $("rSaved").textContent="A$"+fmt(Math.round(v.saved));
+      $("rPerMW").textContent="A$"+fmt(Math.round(v.perMW));
     }
     var anim=null;
     function tween(){
