@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>CalEnergy × Aptics — Suntop Solar Farm</title>
-<meta name="description" content="Combined vegetation management and independent under-panel thermal inspection at Suntop Solar Farm — answering CalEnergy's own question about back-of-panel connector scans, while Canadian Solar's module warranty is still open.">
+<meta name="description" content="Combined vegetation management and independent under-panel thermal inspection at Suntop Solar Farm — answering CalEnergy's own question about back-of-panel connector scans.">
 <style>
 :root{
   --ink:#0c1110; --paper:#fafaf9; --white:#ffffff;
@@ -68,7 +68,7 @@ h2 .q{display:block;color:var(--teal-deep)}
 .hero h1 .turn{display:block;color:var(--teal);margin-top:.1em}
 .hero .sub{margin-top:34px;font-size:19px;color:var(--dark-mute);max-width:640px;font-weight:420;padding-bottom:90px}
 
-.band{border-top:1px solid var(--dark-hair);background:var(--dark2);display:grid;grid-template-columns:repeat(5,1fr);
+.band{border-top:1px solid var(--dark-hair);background:var(--dark2);display:grid;grid-template-columns:repeat(4,1fr);
       position:relative;z-index:2}
 .band .cell{padding:40px 16px 36px;text-align:center;border-right:1px solid var(--dark-hair)}
 .band .cell:last-child{border-right:none}
@@ -143,7 +143,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:none;border-ra
 .frow.this .nm{color:var(--teal-deep)}
 
 /* steps */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:76px;border-top:1px solid var(--hair)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);margin-top:76px;border-top:1px solid var(--hair)}
 .step{padding:36px 30px 0 0;border-right:1px solid var(--hair)}
 .step:last-child{border-right:none}
 .step .n{font-size:13px;color:var(--faint);font-variant-numeric:tabular-nums}
@@ -250,17 +250,15 @@ footer a{color:var(--dark-mute)}
   <div class="wrap">
     <div class="mark">CalEnergy Resources × Aptics &nbsp;·&nbsp; Suntop Solar Farm · September 2026</div>
     <h1>The fire risk is real.<span class="turn">It's hiding under the panel.</span></h1>
-    <p class="sub">A hot MC4 connector is the same fault that starts a fire and the same fault that's still
-       Canadian Solar's problem to fix under warranty — the company that built Suntop's modules in the first
-       place. The annual drone-and-handheld round covers the top of the glass; nobody's confirmed the back of the
-       panel is scanned at all.</p>
+    <p class="sub">A hot MC4 connector is what starts a fire. No full site-wide thermal inspection has been
+       recorded at Suntop or Gunnedah to date — only handheld spot checks. We propose starting with a one-block
+       pilot thermal site inspection at Suntop, zoned upon agreement.</p>
   </div>
   <div class="band">
     <div class="cell"><div class="v"><span data-count="150" data-suffix=" MW">0</span></div><div class="lbl">AC · nameplate capacity</div></div>
     <div class="cell"><div class="v"><span data-count="189" data-suffix=" MWp">0</span></div><div class="lbl">DC · installed capacity (approx.)</div></div>
     <div class="cell"><div class="v"><span data-count="260" data-suffix=" MW">0</span></div><div class="lbl">Combined with Gunnedah · CalEnergy's NSW book</div></div>
     <div class="cell"><div class="v"><span data-count="5" data-suffix=" yrs">0</span></div><div class="lbl">Operating · commissioned ~Aug 2021</div></div>
-    <div class="cell"><div class="v"><span data-count="7" data-suffix=" yrs">0</span></div><div class="lbl">Left on Canadian Solar's 12-yr module warranty</div></div>
   </div>
 </header>
 
@@ -279,60 +277,14 @@ footer a{color:var(--dark-mute)}
            reaches.</b></p></div>
 
       <div class="rowitem"><div class="no">02</div>
-        <div><h3>The clock is different here</h3></div>
-        <p>Suntop's construction-phase cover closed years ago — CalEnergy bought the asset once it reached
-           practical completion in 2022. But the modules are <b>Canadian Solar's own product</b>, carrying a
-           12-year product and 30-year performance warranty, and Suntop is only about five years in. A hot
-           connector found now is still <b>Canadian Solar's problem to fix</b> — whoever CalEnergy has running
-           day-to-day O&amp;M today.</p></div>
-
-      <div class="rowitem"><div class="no">03</div>
         <div><h3>One pass beats a campaign</h3></div>
         <p>A unit that inspects on every pass produces the <b>same reference points every time</b> — a comparable,
            dated, geolocated record, instead of the one annual round a drone-and-handheld campaign can realistically
            deliver.</p></div>
     </div>
 
-    <p class="pull">The cost of proving a warranty claim is a crew walking every row with a handheld camera. The
-      value is <em>a dated, geolocated thermal record, referenced to your own CBX and string identifiers</em> —
-      built while Canadian Solar, not CalEnergy, is still on the hook.</p>
-
-    <!-- COVER WINDOW -->
-    <div class="xw">
-      <div class="exp-head">Mapped over the 30 years from commercial operation: what's already closed, and what
-         <b>Canadian Solar, as the module manufacturer,</b> is still on the hook for.</div>
-      <div class="facts">
-        <div><b>150 MW<sub>ac</sub> / ~189 MW<sub>p dc</sub></b>Suntop Solar Farm</div>
-        <div><b>Near Dunedoo, NSW</b>Central West NSW</div>
-        <div><b>Commissioned ~Aug 2021</b>Bought by CalEnergy, Jul 2022</div>
-        <div><b>Canadian Solar</b>Module OEM &amp; original developer</div>
-        <div><b>O&amp;M &amp; vegetation</b>Subcontracted to third parties — provider not named by CalEnergy</div>
-        <div><b>Open question, 22 Sep 2026</b>Are back-of-panel scans happening at all?</div>
-      </div>
-
-      <div class="readout" id="xw-readout"><span>Hover any row for the detail.</span></div>
-
-      <div class="panel">
-       <div class="inner">
-        <div class="mkstrip" id="xw-mkstrip"></div>
-        <div class="mkwrap"><div id="xw-matrix"></div><div id="xw-mklayer"></div></div>
-        <div class="xaxis" id="xw-xaxis"></div>
-
-        <div class="legend">
-          <span><i style="background:var(--e-c1)"></i>Construction-phase cover — closed</span>
-          <span><i style="background:var(--e-c2)"></i>Canadian Solar product warranty — replacement cover</span>
-          <span class="hi"><i style="background:var(--e-sensor)"></i>Canadian Solar performance warranty — degradation only</span>
-          <span><i class="s0" style="border:1px solid var(--e-none-line)"></i>No cover — CalEnergy bears the cost</span>
-        </div>
-       </div>
-      </div>
-
-      <p class="fn">Commissioning and practical-completion dates are estimated from public reporting (see footer)
-         and CalEnergy's own account of roughly five years' operation — not from a sighted contract or handover
-         certificate. Module warranty terms are Canadian Solar's published Australian terms for its BiKu/BiHiKu
-         module family; the certificate actually issued for Suntop's own modules has not been sighted. This is not
-         an audit of CalEnergy's or Canadian Solar's actual contracts.</p>
-    </div>
+    <p class="pull">The cost of a proper look is a crew walking every row with a handheld camera. The
+      value is <em>a dated, geolocated thermal record, referenced to your own CBX and string identifiers</em>.</p>
   </div>
 </section>
 
@@ -341,10 +293,8 @@ footer a{color:var(--dark-mute)}
   <div class="wrap rv">
     <div class="eyebrow">The machine</div>
     <h2>One chassis. It reads every string from underneath.</h2>
-    <p class="lede">Aptics runs this as a single subscription, not two separate services: the same platform manages
-       vegetation to the required clearance height and images the full under-panel envelope on every pass — the
-       layer no drone, walk-down or aerial survey ever reaches. These frames are from our own under-panel camera
-       work elsewhere; Suntop would be the first pass at this site itself.</p>
+    <p class="lede">Aptics runs a thermal inspection of the full under-panel envelope on every pass — the layer no
+       drone, walk-down or aerial survey ever reaches.</p>
 
     <figure style="margin-top:48px;border-radius:14px;overflow:hidden;border:1px solid var(--hair)">
       <img src="unit-onsite.jpg" alt="Aptics AU 007 unit on site at a solar farm, with site crew talking in the background" style="display:block;width:100%;max-height:520px;object-fit:cover">
@@ -377,8 +327,8 @@ footer a{color:var(--dark-mute)}
       <figure>
         <img src="mc4-04.png" alt="Under-panel view with a single MC4 connector identified mid-row">
         <figcaption><b>Visual · mid-row</b>A single connector picked out mid-row, elsewhere in the fleet. Left
-          alone, this is how a string quietly stops earning — and how a manufacturer's warranty claim quietly
-          loses its evidence.</figcaption>
+          alone, this is how a string quietly stops earning — and how a fault like this can sit undetected for
+          months.</figcaption>
       </figure>
     </div>
 
@@ -417,10 +367,10 @@ footer a{color:var(--dark-mute)}
 
     <div class="calc">
       <div>
-        <div class="bigsub" style="margin:0 0 4px">Aptics would be saving you over</div>
+        <div class="bigsub" style="margin:0 0 4px">An assumed saving from day 0</div>
         <div class="bignum" id="rAUD">A$0.00M</div>
         <div class="bigsub">a year, at the coverage and cadence you set — <b>with a fully auditable data trail
-           behind every finding</b>, evidenced while Canadian Solar's own module warranty is still open.</div>
+           behind every finding.</b></div>
         <div class="subrow">
           <div class="cell"><div class="n" id="rManual">A$0</div><div class="k">Manual walk-down / yr</div></div>
           <div class="cell"><div class="n" id="rAptics">A$0</div><div class="k">Aptics fixed fee / yr</div></div>
@@ -463,8 +413,8 @@ footer a{color:var(--dark-mute)}
 
     <p class="pull">Neither sets a threshold or an interval. The standard is whatever you can evidence — <em>a
        dated, geolocated record of what was found, where, and when</em>. Vegetation encroachment on the same DC
-       infrastructure compounds the same risk — a fault and long grass in the same place is how a fire starts, not
-       just a warranty claim. Every pass leaves a record automatically.</p>
+       infrastructure compounds the same risk — a fault and long grass in the same place is how a fire starts.
+       Every pass leaves a record automatically.</p>
   </div>
 </section>
 
@@ -482,7 +432,7 @@ footer a{color:var(--dark-mute)}
         <div class="st">This proposal · hilly terrain, erosion and springs · sheep graze under an adjustment
            agreement with neighbours</div></div>
       <div class="frow"><div class="nm">Gunnedah</div><div class="no">110 AC</div><div class="st">NSW</div>
-        <div class="st">Same owner · flat floodplain, per CalEnergy's own description · not yet scoped</div></div>
+        <div class="st">Same owner · flat floodplain · not yet scoped</div></div>
     </div>
     <p style="margin-top:18px;font-size:12.5px;color:var(--faint)">CalEnergy Resources (Australia) Limited is a
        subsidiary of Northern Powergrid Holdings, part of Berkshire Hathaway Energy — per CalEnergy's own asset
@@ -498,21 +448,18 @@ footer a{color:var(--dark-mute)}
 
     <div class="steps">
       <div class="step"><div class="n">01</div><h3>Trial pilot — thermal inspection only</h3>
-        <p>Five days on site at Suntop — onboarding, geofencing, and a thermal-and-visual pass across the block or
-           blocks CalEnergy nominates. <b>A$30,000 fixed, excluding GST</b>, plus mobilisation at documented cost +
+        <p>Five days on site at Suntop — onboarding, geofencing, and a thermal-and-visual pass across the block
+           CalEnergy nominates. <b>A$30,000 fixed, excluding GST</b>, plus mobilisation at documented cost +
            10% (estimated A$4,500) — 50% on execution, 50% on commissioning completion. This trial covers thermal
            inspection only; vegetation management is priced separately as part of the ongoing subscription below.</p></div>
       <div class="step"><div class="n">02</div><h3>What you get</h3>
         <p>A geolocated findings report referenced to Suntop's own layout, with MC4 and loom heating reported as
-           its own section — so a manufacturer's claim against Canadian Solar can be lodged without being unpicked
-           from the rest — plus Aptics Console access for the trial period.</p></div>
+           its own section — plus Aptics Console access for the trial period.</p></div>
       <div class="step"><div class="n">03</div><h3>The whole site</h3>
         <p>150 MW at Aptics' standard per-MW rate (see the calculator above), as a single subscription combining
            vegetation management and thermal inspection — phased by block once the first look confirms the
-           terrain, at the quarterly pass cadence proposed above.</p></div>
-      <div class="step"><div class="n">04</div><h3>While the modules are still under warranty</h3>
-        <p>Roughly seven years remain on Canadian Solar's own product warranty for Suntop's modules, and about
-           twenty-five on the performance warranty. A baseline set now is evidence while it still counts.</p></div>
+           terrain, at the quarterly pass cadence proposed above. A 3-year term with 5% escalation. The trial fee
+           is credited in full against onboarding if you proceed within 30 days of the report.</p></div>
     </div>
 
     <p style="margin-top:34px;font-size:14.5px;color:var(--mute)">A
@@ -525,10 +472,9 @@ footer a{color:var(--dark-mute)}
 <section class="close" id="close">
   <div class="wrap rv">
     <h2>Let's get Josh his answer on the panel scans.</h2>
-    <p class="when">Josh — you asked us to check whether anyone's actually inspecting behind the panel at Suntop.
-       From what you've described, that's been drone scans and handheld checks — nothing that amounts to a
-       thorough thermal inspection, including at handover from Canadian Solar in 2022. This is the proposal to
-       close that gap, and the pricing basis we owe you.
+    <p class="when">Josh — As you noted, thermal coverage at Suntop has been limited to annual drone scans and spot
+       checks, leaving a gap in under-panel inspections, even at handover in 2022. Here is our proposal to close
+       that gap, along with the pricing basis.
        <b>Phillip Wagstaff, Aptics.</b></p>
     <a class="cta" href="mailto:phillip@aptics.com?cc=jonathan@aptics.com&amp;subject=Suntop%20—%20Thermal%20%26%20Vegetation%20Inspection%20Proposal">Email Phillip directly</a>
   </div>
@@ -538,23 +484,17 @@ footer a{color:var(--dark-mute)}
   <div class="wrap">
     <p>Figures are indicative and for discussion. Suntop's capacity (150 MW AC; combined 345 MWp DC across Suntop
        and Gunnedah) is corroborated from CalEnergy's own account (Aptics discovery call with Josh Hurley, 22
-       September 2026) and from public reporting of the Canadian Solar → CalEnergy sale:
+       September 2026) and from public reporting of the 2022 sale of the asset to CalEnergy:
        <a href="https://recurrentenergy.com/canadian-solar-completes-sale-of-two-solar-farms-totaling-345-mwp-in-new-south-wales-australia/">Recurrent Energy, 7 July 2022</a>
        and <a href="https://www.pv-magazine-australia.com/2022/07/08/canadian-solar-sells-two-australian-solar-farms-to-us-interests/">pv magazine Australia, 8 July 2022</a>.
        OpenElectricity's own registered-capacity record for facility SUNTPSF was not independently retrievable in
        this session — its facilities API requires an authentication key Aptics does not hold here — and has not
        been reconciled against these figures. Suntop's individual DC capacity (~189 MWp) is sourced to
-       <a href="https://www.csisolar.com/au/189-mw-suntop-solar-farm/">Canadian Solar's own project page</a> and has
-       not been independently verified elsewhere. NSW planning approval for a 170 MW solar farm was determined 4
+       <a href="https://www.csisolar.com/au/189-mw-suntop-solar-farm/">the module manufacturer's project page</a> and
+       has not been independently verified elsewhere. NSW planning approval for a 170 MW solar farm was determined 4
        December 2018 (<a href="https://www.planningportal.nsw.gov.au/major-projects/projects/suntop-solar-farm">NSW
-       planning portal</a>); commissioning is reported as around August 2021 (Canadian Solar's project page);
-       CalEnergy's purchase, at "substantial completion," closed 7 July 2022. A defects-liability period of the
-       standard 12–24 months from that point would already have closed by 2023–2024 — an inference from typical
-       project timelines, not a sighted contract or handover certificate. Module warranty terms (12-year product,
-       30-year performance) are
-       <a href="https://www.canadiansolar.com/au/wp-content/uploads/sites/2/2020/08/CSI_PV_BiKu-MB_Module_Warranty_au-v1.2.pdf">Canadian
-       Solar's published Australian terms</a> for its BiKu/BiHiKu module family; the certificate actually issued
-       for Suntop's own modules has not been sighted. Footprint (1,200 × 700 × 450 mm) is as Aptics described the
+       planning portal</a>); commissioning is reported as around August 2021 (the manufacturer's project page);
+       CalEnergy's purchase, at "substantial completion," closed 7 July 2022. Footprint (1,200 × 700 × 450 mm) is as Aptics described the
        unit to CalEnergy in the 22 September 2026 meeting; weight, pass cadence, power, charging and sensing specs
        are carried from Aptics' standing collateral and not independently re-verified this session. ISO 18497
        certification
@@ -689,63 +629,6 @@ footer a{color:var(--dark-mute)}
         $("livetag").innerHTML='<i></i>Live · Suntop averaged '+fmt(avg,0)+' MW over the last 7 days · OpenElectricity';
       })
       .catch(function(){});
-
-    /* ----- cover-window widget ----- */
-    (function(){
-      var YEARS=32, COD=2021.6;                /* commercial operation, ~Aug 2021 */
-      var NOW=2026.73, BOUGHT=2022.52;          /* today · CalEnergy bought the asset ~Jul 2022 */
-      var tYr=function(cal){return cal-COD;};
-
-      var STATE={
-        1:"Construction-phase / practical-completion cover — closed",
-        2:"Canadian Solar product warranty — replacement for material/workmanship defects",
-        5:"Canadian Solar performance warranty — degradation only, not full replacement",
-        0:"No cover — CalEnergy bears the cost"
-      };
-      var ROWS=[
-        {name:"Construction-phase cover (EPC / practical completion)", seg:[[0,2.4,1],[2.4,32,0]]},
-        {name:"Module product warranty — 12 yrs",     own:true, seg:[[0,12,2],[12,32,0]]},
-        {name:"Module performance warranty — 30 yrs", own:true, seg:[[0,30,5],[30,32,0]]}
-      ];
-
-      var readout=$("xw-readout"), matrix=$("xw-matrix");
-      if(!readout||!matrix)return;
-      var calLabel=function(y){return Math.floor(COD+y)+"–"+String(Math.floor(COD+y+1)).slice(2);};
-      ROWS.forEach(function(r){
-        var row=document.createElement('div'); row.className='mrow';
-        var l=document.createElement('div'); l.className='rlbl';
-        l.innerHTML=r.name+(r.own?' <em>— Canadian Solar</em>':'');
-        row.appendChild(l);
-        var flat=new Array(YEARS).fill(0);
-        r.seg.forEach(function(s){for(var y=s[0];y<s[1]&&y<YEARS;y++)flat[y]=s[2];});
-        flat.forEach(function(s,y){
-          var c=document.createElement('div'); c.className='cell s'+s;
-          c.addEventListener('mouseenter',function(){readout.innerHTML='<span><b>'+r.name+'</b> · '+calLabel(y)+' · '+STATE[s]+'</span>';});
-          row.appendChild(c);
-        });
-        matrix.appendChild(row);
-      });
-      matrix.addEventListener('mouseleave',function(){readout.innerHTML='<span>Hover any row for the detail.</span>';});
-
-      var xwEl=document.querySelector('.xw');
-      var CW=parseFloat(getComputedStyle(xwEl).getPropertyValue('--e-cell'))||20;
-      var LB=parseFloat(getComputedStyle(xwEl).getPropertyValue('--e-lbl'))||288;
-      var MARKS=[{y:tYr(BOUGHT),t:'CalEnergy buys',row:0},{y:tYr(NOW),t:'Today',row:1}];
-      var mklayer=$("xw-mklayer"), mkstrip=$("xw-mkstrip");
-      MARKS.forEach(function(k){
-        var x=LB+k.y*CW;
-        var i=document.createElement('i'); i.style.left=x+'px'; mklayer.appendChild(i);
-        var s=document.createElement('span'); s.textContent=k.t; s.style.left=x+'px'; s.style.top=(k.row*13)+'px'; mkstrip.appendChild(s);
-      });
-
-      var xa=$("xw-xaxis");
-      var t=document.createElement('div'); t.className='xtitle'; t.textContent='Years from commercial operation, ~August 2021'; xa.appendChild(t);
-      for(var y=0;y<YEARS;y++){
-        var s=document.createElement('span');
-        if(y%5===0) s.innerHTML=y+'<u>'+Math.floor(COD+y)+'</u>';
-        xa.appendChild(s);
-      }
-    })();
   }
 })();
 </script>
