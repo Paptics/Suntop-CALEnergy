@@ -255,12 +255,27 @@ footer a{color:var(--dark-mute)}
        pilot thermal site inspection at Suntop, zoned upon agreement.</p>
   </div>
   <div class="band">
-    <div class="cell"><div class="v"><span data-count="150" data-suffix=" MW">0</span></div><div class="lbl">AC · nameplate capacity</div></div>
     <div class="cell"><div class="v"><span data-count="189" data-suffix=" MWp">0</span></div><div class="lbl">DC · installed capacity (approx.)</div></div>
-    <div class="cell"><div class="v"><span data-count="260" data-suffix=" MW">0</span></div><div class="lbl">Combined with Gunnedah · CalEnergy's NSW book</div></div>
+    <div class="cell"><div class="v"><span data-count="472" data-suffix=" ha">0</span></div><div class="lbl">Site area · approx. footprint</div></div>
+    <div class="cell"><div class="v"><span data-count="345" data-suffix=" MWp">0</span></div><div class="lbl">Combined with Gunnedah, DC · CalEnergy's NSW book</div></div>
     <div class="cell"><div class="v"><span data-count="5" data-suffix=" yrs">0</span></div><div class="lbl">Operating · commissioned ~Aug 2021</div></div>
   </div>
 </header>
+
+<!-- CONSOLE WALKTHROUGH -->
+<section>
+  <div class="wrap rv">
+    <figure style="border-radius:14px;overflow:hidden;border:1px solid var(--hair)">
+      <div style="position:relative;padding-top:56.25%">
+        <iframe src="https://www.loom.com/embed/4a507e1e23ad40ddba2cea0fb5671a9b" frameborder="0"
+          webkitallowfullscreen mozallowfullscreen allowfullscreen
+          style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
+      </div>
+      <figcaption style="padding:14px 2px 0;font-size:13.5px;color:var(--mute)"><b style="display:block;color:var(--ink);font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px">Console walkthrough</b>Ready
+        now, showing what the findings report and live anomaly view actually look like.</figcaption>
+    </figure>
+  </div>
+</section>
 
 <!-- 01 WHERE THIS STARTS -->
 <section class="dark">
@@ -375,28 +390,28 @@ footer a{color:var(--dark-mute)}
           <div class="cell"><div class="n" id="rManual">A$0</div><div class="k">Manual walk-down / yr</div></div>
           <div class="cell"><div class="n" id="rAptics">A$0</div><div class="k">Aptics fixed fee / yr</div></div>
           <div class="cell"><div class="n" id="rSaved">A$0</div><div class="k">Difference / yr</div></div>
-          <div class="cell"><div class="n" id="rPerMW">A$0</div><div class="k">Difference per MW / yr</div></div>
+          <div class="cell"><div class="n" id="rPerMW">A$0</div><div class="k">Difference per MWp / yr</div></div>
         </div>
       </div>
       <div class="sl">
-        <label for="sMW">Coverage</label><output id="oMW">150 MW</output>
-        <input id="sMW" type="range" min="0" max="150" step="2" value="150">
-        <label for="sManual">Manual cost per MW, per pass</label><output id="oManual">A$1,270</output>
+        <label for="sMW">Coverage</label><output id="oMW">189 MWp</output>
+        <input id="sMW" type="range" min="0" max="189" step="1" value="189">
+        <label for="sManual">Manual cost per MWp, per pass</label><output id="oManual">A$1,270</output>
         <input id="sManual" type="range" min="700" max="2830" step="10" value="1270">
-        <label for="sPasses">Manual passes actually done, per year</label><output id="oPasses">1</output>
-        <input id="sPasses" type="range" min="0" max="4" step="1" value="1">
+        <label for="sPasses">Manual passes actually done, per year</label><output id="oPasses">2</output>
+        <input id="sPasses" type="range" min="0" max="4" step="1" value="2">
       </div>
     </div>
 
-    <p class="prov">Coverage defaults to <b>150 MW</b> — Suntop's own AC nameplate capacity — with Aptics' standing
-       benchmark rate held at <b>US$1,000 per MW per year</b>, per Aptics' 2026 pricing basis, shown here converted
-       to <b>A$1,416 per MW per year</b> at the mid-market rate of US$1 = A$1.4157 (XE.com, 24 September 2026) — an
-       indicative conversion, not a locked FX rate. This whole-site rate is Aptics' standing benchmark; a firm AUD
-       quote for full-site coverage has not yet been submitted to CalEnergy, unlike the pilot pricing above, which
-       is quoted. The manual cost per MW and the number of passes are yours to set;
-       CalEnergy's team currently runs one annual drone round, so the one-pass default is sourced, but
-       the A$1,270 manual-cost figure is an indicative placeholder for discussion (converted from a US$900 working
-       assumption), not CalEnergy's own costs. The live signal above is Suntop's own recent NEM dispatch — shown as
+    <p class="prov">Coverage defaults to <b>189 MWp</b> — Suntop's own DC installed capacity (approx.) — with
+       Aptics' standing benchmark rate held at <b>US$1,000 per MWp per year</b>, per Aptics' 2026 pricing basis,
+       shown here converted to <b>A$1,416 per MWp per year</b> at the mid-market rate of US$1 = A$1.4157 (XE.com,
+       24 September 2026) — an indicative conversion, not a locked FX rate. This whole-site rate is Aptics'
+       standing benchmark; a firm AUD quote for full-site coverage has not yet been submitted to CalEnergy, unlike
+       the pilot pricing above, which is quoted. The manual cost per MWp and the number of passes are yours to set;
+       the default of <b>2 passes per year</b> is Aptics' own assumed starting point for illustration — CalEnergy's
+       team currently runs one annual drone round — and the A$1,270 manual-cost figure is an indicative placeholder
+       for discussion (converted from a US$900 working assumption), not CalEnergy's own costs. The live signal above is Suntop's own recent NEM dispatch — shown as
        a data-quality proof point, not an input to this calculator. No capital-at-risk figure is shown here, unlike
        in comparable Aptics proposals, because Suntop's build cost has not been sourced this session.</p>
   </div>
@@ -461,10 +476,6 @@ footer a{color:var(--dark-mute)}
            terrain, at the quarterly pass cadence proposed above. A 3-year term with 5% escalation. The trial fee
            is credited in full against onboarding if you proceed within 30 days of the report.</p></div>
     </div>
-
-    <p style="margin-top:34px;font-size:14.5px;color:var(--mute)">A
-       <a href="https://www.loom.com/share/4a507e1e23ad40ddba2cea0fb5671a9b" style="color:var(--teal-deep);font-weight:560">Console walkthrough</a>
-       is ready now, showing what the findings report and live anomaly view actually look like.</p>
   </div>
 </section>
 
@@ -491,7 +502,10 @@ footer a{color:var(--dark-mute)}
        this session — its facilities API requires an authentication key Aptics does not hold here — and has not
        been reconciled against these figures. Suntop's individual DC capacity (~189 MWp) is sourced to
        <a href="https://www.csisolar.com/au/189-mw-suntop-solar-farm/">the module manufacturer's project page</a> and
-       has not been independently verified elsewhere. NSW planning approval for a 170 MW solar farm was determined 4
+       has not been independently verified elsewhere. Site area (approx. 472 ha) is sourced to CalEnergy's own
+       <a href="https://www.calenergyresources.com/sites/default/files/1970-01/Suntop-SF_BMP_200609-V5.pdf">Suntop
+       Solar Farm Biodiversity Management Plan, June 2020</a>, which describes the development site as
+       "construction and operational area comprising of approximately 472 hectares." NSW planning approval for a 170 MW solar farm was determined 4
        December 2018 (<a href="https://www.planningportal.nsw.gov.au/major-projects/projects/suntop-solar-farm">NSW
        planning portal</a>); commissioning is reported as around August 2021 (the manufacturer's project page);
        CalEnergy's purchase, at "substantial completion," closed 7 July 2022. Footprint (1,200 × 700 × 450 mm) is as Aptics described the
@@ -587,11 +601,11 @@ footer a{color:var(--dark-mute)}
     var cur={manual:0,aptics:0,saved:0,perMW:0};
     function target(){
       var mw=+$("sMW").value,manualRate=+$("sManual").value,passes=+$("sPasses").value;
-      $("oMW").textContent=fmt(mw)+" MW";
+      $("oMW").textContent=fmt(mw)+" MWp";
       $("oManual").textContent="A$"+fmt(manualRate);
       $("oPasses").textContent=fmt(passes);
       var manual=mw*manualRate*passes;
-      var aptics=mw*1416;               /* US$1,000/MW/yr converted at US$1=A$1.4157 (XE.com, 24 Sep 2026) */
+      var aptics=mw*1416;               /* US$1,000/MWp/yr converted at US$1=A$1.4157 (XE.com, 24 Sep 2026) */
       var saved=Math.max(0,manual-aptics);
       return{manual:manual,aptics:aptics,saved:saved,perMW:mw>0?saved/mw:0};
     }
