@@ -385,7 +385,7 @@ footer a{color:var(--dark-mute)}
 
     <div class="calc">
       <div>
-        <div class="bigsub" style="margin:0 0 4px">An assumed saving from day 0</div>
+        <div class="bigsub" style="margin:0 0 4px">A net saving from day one</div>
         <div class="bignum" id="rAUD">A$0.00M</div>
         <div class="bigsub">a year, at the coverage and cadence you set — <b>with a fully auditable data trail
            behind every finding.</b></div>
@@ -440,21 +440,22 @@ footer a{color:var(--dark-mute)}
 <section>
   <div class="wrap rv" style="padding-top:0">
     <div class="eyebrow">The portfolio</div>
-    <h2>One 150 MW site. A second next door.</h2>
+    <h2>One 189 MWp site. A second next door.</h2>
     <p class="lede">Everything configured at Suntop — CBX references, thermal baselines, findings format, Console
        access — becomes the standard for Gunnedah, and for whatever CalEnergy adds to its Australian book next.</p>
 
     <div class="folio">
-      <div class="frow hd"><div>Site</div><div>MW</div><div>State</div><div></div></div>
-      <div class="frow this"><div class="nm">Suntop</div><div class="no">150 AC</div><div class="st">NSW</div>
+      <div class="frow hd"><div>Site</div><div>MWp DC</div><div>State</div><div></div></div>
+      <div class="frow this"><div class="nm">Suntop</div><div class="no">189</div><div class="st">NSW</div>
         <div class="st">This proposal · hilly terrain, erosion and springs · sheep graze under an adjustment
            agreement with neighbours</div></div>
-      <div class="frow"><div class="nm">Gunnedah</div><div class="no">110 AC</div><div class="st">NSW</div>
+      <div class="frow"><div class="nm">Gunnedah</div><div class="no">~156</div><div class="st">NSW</div>
         <div class="st">Same owner · flat floodplain · not yet scoped</div></div>
     </div>
     <p style="margin-top:18px;font-size:12.5px;color:var(--faint)">CalEnergy Resources (Australia) Limited is a
        subsidiary of Northern Powergrid Holdings, part of Berkshire Hathaway Energy — per CalEnergy's own asset
-       page and public reporting of the 2022 acquisition (see footer).</p>
+       page and public reporting of the 2022 acquisition (see footer). Gunnedah's ~156 MWp DC figure is derived
+       (345 MWp combined less Suntop's ~189 MWp) and has not been independently sourced on its own.</p>
   </div>
 </section>
 
@@ -467,14 +468,16 @@ footer a{color:var(--dark-mute)}
     <div class="steps">
       <div class="step"><div class="n">01</div><h3>Trial pilot — thermal inspection only</h3>
         <p>Five days on site at Suntop — onboarding, geofencing, and a thermal-and-visual pass across the block
-           CalEnergy nominates. <b>A$30,000 fixed, excluding GST</b>, plus mobilisation at documented cost +
+           CalEnergy nominates. <b>A$20,000 fixed, excluding GST</b>, plus mobilisation at documented cost +
            10% (estimated A$4,500) — 50% on execution, 50% on commissioning completion. This trial covers thermal
-           inspection only; vegetation management is priced separately as part of the ongoing subscription below.</p></div>
+           inspection only within the nominated block; vegetation management is priced separately as part of the
+           ongoing subscription below.</p></div>
       <div class="step"><div class="n">02</div><h3>What you get</h3>
-        <p>A geolocated findings report referenced to Suntop's own layout, with MC4 and loom heating reported as
-           its own section — plus Aptics Console access for the trial period.</p></div>
+        <p>A geolocated findings report against Suntop's own layout — MC4 and loom heating called out in its own
+           section, the exact fault class behind the fire risk — plus live Aptics Console access for the trial
+           period, the same findings and anomaly view shown in the walkthrough above.</p></div>
       <div class="step"><div class="n">03</div><h3>The whole site</h3>
-        <p>150 MW at Aptics' standard per-MW rate (see the calculator above), as a single subscription combining
+        <p>189 MWp at Aptics' standard per-MWp rate (see the calculator above), as a single subscription combining
            vegetation management and thermal inspection — phased by block once the first look confirms the
            terrain, at the quarterly pass cadence proposed above. A 3-year term with 5% escalation. The trial fee
            is credited in full against onboarding if you proceed within 30 days of the report.</p></div>
@@ -496,35 +499,21 @@ footer a{color:var(--dark-mute)}
 
 <footer>
   <div class="wrap">
-    <p>Figures are indicative and for discussion. Suntop's capacity (150 MW AC; combined 345 MWp DC across Suntop
-       and Gunnedah) is corroborated from CalEnergy's own account (Aptics discovery call with Josh Hurley, 22
-       September 2026) and from public reporting of the 2022 sale of the asset to CalEnergy:
-       <a href="https://recurrentenergy.com/canadian-solar-completes-sale-of-two-solar-farms-totaling-345-mwp-in-new-south-wales-australia/">Recurrent Energy, 7 July 2022</a>
-       and <a href="https://www.pv-magazine-australia.com/2022/07/08/canadian-solar-sells-two-australian-solar-farms-to-us-interests/">pv magazine Australia, 8 July 2022</a>.
-       OpenElectricity's own registered-capacity record for facility SUNTPSF was not independently retrievable in
-       this session — its facilities API requires an authentication key Aptics does not hold here — and has not
-       been reconciled against these figures. Suntop's individual DC capacity (~189 MWp) is sourced to
-       <a href="https://www.csisolar.com/au/189-mw-suntop-solar-farm/">the module manufacturer's project page</a> and
-       has not been independently verified elsewhere. Site area (approx. 472 ha) is sourced to CalEnergy's own
-       <a href="https://www.calenergyresources.com/sites/default/files/1970-01/Suntop-SF_BMP_200609-V5.pdf">Suntop
-       Solar Farm Biodiversity Management Plan, June 2020</a>, which describes the development site as
-       "construction and operational area comprising of approximately 472 hectares." NSW planning approval for a 170 MW solar farm was determined 4
-       December 2018 (<a href="https://www.planningportal.nsw.gov.au/major-projects/projects/suntop-solar-farm">NSW
-       planning portal</a>); commissioning is reported as around August 2021 (the manufacturer's project page);
-       CalEnergy's purchase, at "substantial completion," closed 7 July 2022. Footprint (1,200 × 700 × 450 mm) is as Aptics described the
-       unit to CalEnergy in the 22 September 2026 meeting; weight, pass cadence, power, charging and sensing specs
-       are carried from Aptics' standing collateral and not independently re-verified this session. ISO 18497
-       certification
-       and the public/products liability figure are carried from Aptics' standing collateral and were not
-       independently re-verified this session. The trial pilot price (A$30,000 fixed excl. GST, plus mobilisation
-       at cost + 10%) is quoted in this proposal. The ongoing whole-site rate shown in the calculator (US$1,000 per
-       MW per year) is Aptics' internal 2026 pricing basis, not yet formally submitted to CalEnergy. Regulatory
-       reference: Work Health and Safety Act 2011 (NSW) and AS/NZS 5033; SafeWork NSW compliance activity at NSW
-       solar farms,
-       ongoing since 2021. Imagery, including the thermal and MC4 frames and the photograph of the AU 007 unit in
-       the field, is from Aptics deployments elsewhere and is illustrative — Aptics has not yet visited or
-       thermally inspected Suntop, and none of these images are photographs of this site. Figures on this page are
-       for discussion and are not an offer.
+    <p>Figures are indicative and for discussion, not an offer. Suntop's capacity (150 MW AC; ~189 MWp DC; 345 MWp
+       combined with Gunnedah), site area (~472 ha) and commissioning (~Aug 2021) draw on CalEnergy's own account
+       (Aptics discovery call with Josh Hurley, 22 September 2026), public reporting of the 2022 sale to CalEnergy
+       (<a href="https://recurrentenergy.com/canadian-solar-completes-sale-of-two-solar-farms-totaling-345-mwp-in-new-south-wales-australia/">Recurrent
+       Energy</a>, <a href="https://www.pv-magazine-australia.com/2022/07/08/canadian-solar-sells-two-australian-solar-farms-to-us-interests/">pv
+       magazine Australia</a>), <a href="https://www.csisolar.com/au/189-mw-suntop-solar-farm/">the module
+       manufacturer's project page</a>, CalEnergy's own <a href="https://www.calenergyresources.com/sites/default/files/1970-01/Suntop-SF_BMP_200609-V5.pdf">Biodiversity
+       Management Plan</a> and the <a href="https://www.planningportal.nsw.gov.au/major-projects/projects/suntop-solar-farm">NSW
+       planning portal</a> — none independently re-verified this session. Unit specs, ISO 18497 certification and
+       liability cover are carried from Aptics' standing collateral. The trial price (A$20,000 excl. GST, plus
+       mobilisation at cost + 10%) is quoted here; the ongoing whole-site rate (US$1,000 per MWp per year) is
+       Aptics' internal 2026 pricing basis, not yet formally submitted to CalEnergy. Regulatory reference: Work
+       Health and Safety Act 2011 (NSW), AS/NZS 5033, and SafeWork NSW's compliance activity at NSW solar farms
+       since 2021. Imagery is illustrative, from other Aptics deployments — Aptics has not yet visited or thermally
+       inspected Suntop.
        Aptics Aus Pty Ltd (ACN 701 578 207) · Confidential &amp; without prejudice.</p>
   </div>
 </footer>
